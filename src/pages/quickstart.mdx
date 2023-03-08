@@ -1,18 +1,18 @@
 export const description =
-  'This guide will get you all set up and ready to use the Protocol API. We’ll cover how to get started an API client and how to make your first API request.'
+  'This guide will get you all set up and ready to use the Structure API. We’ll cover how to get started an API client and how to make your first API request.'
 
 # Quickstart
 
-This guide will get you all set up and ready to use the Protocol API. We'll cover how to get started using one of our API clients and how to make your first API request. We'll also look at where to go next to find all the information you need to take full advantage of our powerful REST API. {{ className: 'lead' }}
+This guide will get you all set up and ready to use the Structure API. We'll cover how to get started using one of our API clients and how to make your first API request. We'll also look at where to go next to find all the information you need to take full advantage of our powerful REST API. {{ className: 'lead' }}
 
 <Note>
-  Before you can make requests to the Protocol API, you will need to grab your
-  API key from your dashboard. You find it under [Settings &raquo; API](#).
+  Before you can make requests to the Structure API, you will need to grab your
+  API key from your dashboard. You find it under [API Tokens](https://www.structure.ac/api_tokens).
 </Note>
 
 ## Choose your client
 
-Before making your first API request, you need to pick which API client you will use. In addition to good ol' cURL HTTP requests, Protocol offers clients for JavaScript, Python, and PHP. In the following example, you can see how to install each client.
+Before making your first API request, you need to pick which API client you will use. In addition to good ol' cURL HTTP requests, Structure offers clients for JavaScript, Python, Ruby, Go and PHP. In the following example, you can see how to install each client.
 
 <CodeGroup>
 
@@ -22,18 +22,28 @@ curl --version
 ```
 
 ```bash {{ language: 'js' }}
-# Install the Protocol JavaScript SDK
-npm install @example/protocol-api --save
+# Install the Structure JavaScript SDK
+npm install @structure_ac/structure --save
 ```
 
 ```bash {{ language: 'python' }}
-# Install the Protocol Python SDK
-pip install protocol_api
+# Install the Structure Python SDK
+pip install structure_ac
 ```
 
 ```bash {{ language: 'php' }}
-# Install the Protocol PHP SDK
-composer require protocol/sdk
+# Install the Structure PHP SDK
+composer require structure/sdk
+```
+
+```bash {{ language: 'ruby' }}
+# Install the Structure Ruby SDK
+gem install structure_ac
+```
+
+```bash {{ language: 'go' }}
+# Install the Structure Go SDK
+go get structure_ac
 ```
 
 </CodeGroup>
@@ -49,46 +59,57 @@ composer require protocol/sdk
 
 ## Making your first API request
 
-After picking your preferred client, you are ready to make your first call to the Protocol API. Below, you can see how to send a GET request to the Conversations endpoint to get a list of all your conversations. In the cURL example, results are limited to ten conversations, the default page length for each client.
+After picking your preferred client, you are ready to make your first call to the Structure API. Below, you can see how to send a GET request to the Person endpoint to get an enriched profile from a linkedin person key.
 
-<CodeGroup tag="GET" label="/v1/conversations">
+<CodeGroup tag="GET" label="/v1/people">
 
 ```bash {{ title: 'cURL' }}
-curl -G https://api.protocol.chat/v1/conversations \
+curl -G https://www.structure.ac/v1/people/stevejobs\
   -H "Authorization: Bearer {token}" \
-  -d limit=10
 ```
 
 ```js
-import ApiClient from '@example/protocol-api'
+import ApiClient from '@structure_ac/structure'
 
 const client = new ApiClient(token)
 
-await client.conversations.list()
+await client.person.find('stevejobs')
 ```
 
 ```python
-from protocol_api import ApiClient
+from structure_ac import ApiClient
 
 client = ApiClient(token)
 
-client.conversations.list()
+client.person.find('stevejobs')
 ```
 
 ```php
-$client = new \Protocol\ApiClient($token);
+$client = new \Structure\ApiClient($token);
 
-$client->conversations->list();
+$client->person->find('stevejobs');
+```
+
+```ruby
+client = Structure::Client.new(api_key: ENV["STRUCTURE_API_KEY"])
+
+client.person.find('stevejobs')
+```
+
+```go
+client := structure.NewAuthClient("structure_api_token")
+
+p, _ := client.GetPerson('stevejobs')
 ```
 
 </CodeGroup>
 
 <div className="not-prose">
   <Button
-    href="/conversations"
+    href="/people"
     variant="text"
     arrow="right"
-    children="Read the docs for the Conversations endpoint"
+    children="Read the docs for the People endpoint"
   />
 </div>
 
@@ -96,6 +117,6 @@ $client->conversations->list();
 
 Great, you're now set up with an API client and have made your first request to the API. Here are a few links that might be handy as you venture further into the Protocol API:
 
-- [Grab your API key from the Protocol dashboard](#)
-- [Check out the Conversations endpoint](/conversations)
-- [Learn about the different error messages in Protocol](/errors)
+- [Grab your API key from the Structure dashboard](https://www.structure.ac/api_tokens)
+- [Check out the People endpoint](/people)
+- [Learn about the different error messages in Structure](/errors)

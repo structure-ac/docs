@@ -17,13 +17,7 @@ const guides = [
     name: 'Errors',
     description:
       'Read about the different types of errors returned by the API.',
-  },
-  {
-    href: '/webhooks',
-    name: 'Webhooks',
-    description:
-      'Learn how to programmatically configure webhooks for your app.',
-  },
+  }
 ]
 
 export function Guides() {
