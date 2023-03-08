@@ -193,17 +193,15 @@ export const navigation = [
       { title: 'Authentication', href: '/authentication' },
       { title: 'Pagination', href: '/pagination' },
       { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'People', href: '/people' },
+      { title: 'Companies', href: '/companies' },
+      { title: 'Jobs', href: '/jobs' },
+      { title: 'Employees', href: '/employees' },
     ],
   },
 ]

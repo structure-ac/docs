@@ -1,0 +1,92 @@
+export const description =
+  'On this page, we’ll dive into the person endpoint you can use to enrich a profile programmatically.'
+
+# People
+
+People are at the center of Structure. On this page, we'll dive into hoew you can use the person endpoint to enrich a linked url programmatically. {{ className: 'lead' }}
+
+## The Person model
+
+The person model contains all the information about the person from linked in and other sources.
+
+### Properties
+
+<Properties>
+  <Property name="key" type="string">
+    Unique identifier for the person.
+  </Property>
+  <Property name="awards" type="array">
+    Awards for the person.
+  </Property>
+  <Property name="skills" type="array">
+    A persons listed skills.
+  </Property>
+  <Property name="courses" type="array">
+    Courses a person has listed.
+  </Property>
+  <Property name="patents" type="array">
+    Patents a person has listed.
+  </Property>
+  <Property name="premium" type="boolean">
+    A person's premium linkedin status.
+  </Property>
+</Properties>
+
+---
+
+## Retrieve a person {{ tag: 'GET', label: '/api/v1/people/:id' }}
+
+<Row>
+  <Col>
+
+    This endpoint allows you to retrieve an enriched person profile.
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="GET" label="/v1/attachments/Nc6yKKMpcxiiFxp6">
+
+    ```bash {{ title: 'cURL' }}
+    curl https://api.protocol.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
+      -H "Authorization: Bearer {token}"
+    ```
+
+    ```js
+    import ApiClient from '@example/protocol-api'
+
+    const client = new ApiClient(token)
+
+    await client.attachments.get('Nc6yKKMpcxiiFxp6')
+    ```
+
+    ```python
+    from protocol_api import ApiClient
+
+    client = ApiClient(token)
+
+    client.attachments.get("Nc6yKKMpcxiiFxp6")
+    ```
+
+    ```php
+    $client = new \Protocol\ApiClient($token);
+
+    $client->attachments->get('Nc6yKKMpcxiiFxp6');
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": "Nc6yKKMpcxiiFxp6",
+      "message_id": "LoPsJaMcPBuFNjg1",
+      "filename": "Invoice_room_service__Plaza_Hotel.pdf",
+      "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
+      "file_type": "application/pdf",
+      "file_size": 21352,
+      "created_at": 692233200
+    }
+    ```
+
+  </Col>
+</Row>
+

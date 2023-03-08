@@ -10,7 +10,7 @@ You can tell if your request was successful by checking the status code when rec
 <Note>
   Before reaching out to support with an error, please be aware that 99% of all
   reported errors are, in fact, user errors. Therefore, please carefully check
-  your code before contacting Protocol support.
+  your code before contacting Structure support.
 </Note>
 
 ---
@@ -28,7 +28,7 @@ Here is a list of the different categories of status codes returned by the Proto
     problem.
   </Property>
   <Property name="5xx">
-    A 5xx status code indicates a server error — you won't be seeing these.
+    A 5xx status code indicates a server error — you won't be seeing these ;).
   </Property>
 </Properties>
 
@@ -44,7 +44,7 @@ Here is a list of the different categories of status codes returned by the Proto
     Here is a list of the two error types supported by the Protocol API — use these to understand what you have done wrong.
 
     <Properties>
-      <Property name="api_error">
+      <Property name="error">
         This means that we made an error, which is highly speculative and unlikely.
       </Property>
       <Property name="invalid_request">
@@ -59,7 +59,7 @@ Here is a list of the different categories of status codes returned by the Proto
     {
       "type": "api_error",
       "message": "No way this is happening!?",
-      "documentation_url": "https://protocol.chat/docs/errors/api_error"
+      "documentation_url": "https://docs.structure.ac/errors/api_error"
     }
     ```
 
